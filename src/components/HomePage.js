@@ -42,12 +42,11 @@ function HomePage() {
         // eslint-disable-next-line
         else {
             let retString = localStorage.getItem("bookmarks");
-            // console.log(localStorage.getItem("bookmarks"));
             let retArray = JSON.parse(retString);
             retArray && setBookmarkList(retArray);
         }
         // eslint-disable-next-line
-    }, [param,localStorage.messages])
+    }, [param])
 
 
     return (
@@ -61,9 +60,9 @@ function HomePage() {
                 <div className='w-[75%] relative'>
                     <div className='h-[90%] w-full bg-gray-500 px-4 py-2 opacity-60 space-y-2 overflow-y-scroll scrollbar-hide'>
                         {!param ? messageList.map((msg, index) => {
-                            return <Message key={index} ind={index} message={msg} setMessageList={setMessageList} />
+                            return <Message key={index} message={msg} setMessageList={setMessageList} />
                         }) : bookmarkList.map((bookmark, index) => {
-                            return <Message key={index} ind={index} message={bookmark} setBookmarkList={setBookmarkList} />
+                            return <Message key={index} message={bookmark} setBookmarkList={setBookmarkList} />
                         })
                         }
                     </div>
