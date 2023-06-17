@@ -6,5 +6,5 @@ module.exports = {
       'ocean': "url('../public/images/ocean.jpg')",
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 }
