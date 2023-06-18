@@ -15,17 +15,19 @@ function HomePage() {
     const { param } = useParams();
 
     function handleSubmit() {
-        if (!param) {
-            setMessageList([...messageList, input]);
-            let string = JSON.stringify([...messageList, input]);
-            localStorage.setItem("messages", string);
+        if (input) {
+            if (!param) {
+                setMessageList([...messageList, input]);
+                let string = JSON.stringify([...messageList, input]);
+                localStorage.setItem("messages", string);
+            }
+            else {
+                setBookmarkList([...bookmarkList, input]);
+                let string = JSON.stringify([...bookmarkList, input]);
+                localStorage.setItem("bookmarks", string);
+            }
+            setInput("");
         }
-        else {
-            setBookmarkList([...bookmarkList, input]);
-            let string = JSON.stringify([...bookmarkList, input]);
-            localStorage.setItem("bookmarks", string);
-        }
-        setInput("");
     }
 
     function enteredKey(e) {
@@ -70,7 +72,7 @@ function HomePage() {
                         <input type='text' value={input} onChange={(e) => setInput(e.target.value)} placeholder='Type a daily note' className='w-[95%] px-2 rounded-sm bg-gray-300' onKeyPress={enteredKey} />
                         <div className='flex items-center justify-center w-fit h-full'>
                             <div className='bg-green-700 p-1 rounded-2xl cursor-pointer' onClick={handleSubmit}>
-                                <Send height="20px" fill="white"/>
+                                <Send height="20px" fill="white" />
                             </div>
                         </div>
                     </div>

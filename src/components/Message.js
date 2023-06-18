@@ -33,8 +33,10 @@ const Message = (props) => {
             <div className='w-[95%]'>
                 {props.message}
             </div>
-            <div className='cursor-pointer flex items-center justify-center' onClick={handleDelete}>
-                <Delete height="20px" fill="red" />
+            <div className='flex items-center justify-center w-fit h-full'>
+                <div className='bg-red-700 p-1 rounded-2xl cursor-pointer' onClick={handleDelete}>
+                    <Delete height="20px" fill="white" />
+                </div>
             </div>
         </div>
 
